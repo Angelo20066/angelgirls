@@ -31,29 +31,14 @@
             padding: 15px; text-align: center; color: white; margin-top: 40px;
             text-transform: uppercase; font-weight: bold; cursor: pointer;
         }
-        
-        /* Classe attivata solo via JS */
-        .is-alerting {
-            animation: flash-border 0.8s infinite alternate !important;
-            border-color: var(--pure-red) !important;
-        }
-        
-        .registrati-text {
-            color: #666; font-size: 11px; margin-top: 10px;
-            display: block; text-align: center; font-weight: bold; opacity: 0; transition: 0.3s;
-        }
-        
-        .is-alerting-text {
-            color: var(--pure-red) !important;
-            animation: flash-opacity 0.8s infinite alternate !important;
-            opacity: 1 !important;
-        }
+        .is-alerting { animation: flash-border 0.8s infinite alternate !important; border-color: var(--pure-red) !important; }
+        .registrati-text { color: #666; font-size: 11px; margin-top: 10px; display: block; text-align: center; font-weight: bold; opacity: 0; transition: 0.3s; }
+        .is-alerting-text { color: var(--pure-red) !important; animation: flash-opacity 0.8s infinite alternate !important; opacity: 1 !important; }
 
         @keyframes flash-border { from { border-color: var(--pure-red); box-shadow: 0 0 12px var(--pure-red); } to { border-color: transparent; box-shadow: none; } }
         @keyframes flash-opacity { from { opacity: 1; } to { opacity: 0.2; } }
 
-        /* RICERCA E GRIGLIA ORIGINALE */
-        .search-input { width: 100%; max-width: 400px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(212, 175, 55, 0.3); padding: 12px; border-radius: 25px; color: white; outline: none; text-align: center; }
+        /* GRIGLIA E CARD */
         .main-layout { display: flex; justify-content: center; position: relative; max-width: 900px; margin: 0 auto; }
         .profile-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 25px 15px; width: 100%; padding: 10px; }
         .card-container { cursor: pointer; display: flex; flex-direction: column; align-items: center; transition: 0.3s; }
@@ -65,18 +50,21 @@
         #profile-modal { position: fixed; inset: 0; background: rgba(0,0,0,0.95); z-index: 2000; display: none; overflow-y: auto; backdrop-filter: blur(10px); }
         .modal-content { max-width: 500px; margin: 40px auto; padding: 20px; text-align: center; }
         .modal-img { width: 100%; aspect-ratio: 1/1; object-fit: cover; border: 1px solid var(--gold); margin-bottom: 20px; }
-        .contact-btn { display: block; width: 100%; padding: 15px; margin: 10px 0; border: 1px solid var(--gold); color: var(--gold); text-transform: uppercase; font-size: 12px; font-weight: bold; background: rgba(212, 175, 55, 0.1); }
+        
+        /* GALLERY SECTION */
+        .gallery-box { margin-top: 25px; text-align: left; }
+        .gallery-title { font-size: 11px; color: var(--gold); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px; border-left: 2px solid var(--gold); padding-left: 10px; font-weight: 600; }
+        .scroll-container { display: flex; gap: 10px; overflow-x: auto; padding-bottom: 10px; scrollbar-width: none; }
+        .scroll-container::-webkit-scrollbar { display: none; }
+        .thumb-item { min-width: 110px; height: 150px; background: #111; border: 1px solid rgba(212,175,55,0.2); flex-shrink: 0; position: relative; }
+        .thumb-item img, .thumb-item video { width: 100%; height: 100%; object-fit: cover; }
+        .video-icon { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(0,0,0,0.6); border-radius: 50%; padding: 8px; color: white; font-size: 12px; }
 
+        /* BOTTONI E NOTICE */
+        .btn-assistenza-mini { display: inline-flex; align-items: center; background: var(--pure-red); color: white; padding: 4px 12px; border-radius: 2px; font-size: 9px; font-weight: bold; margin-top: 10px; cursor: pointer; text-transform: uppercase; }
         .safety-notice { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(212, 175, 55, 0.1); padding: 15px; margin: 20px 0; font-size: 11px; line-height: 1.5; color: #ddd; }
-        .dot-red { height: 8px; width: 8px; background-color: #ff0000; border-radius: 50%; display: inline-block; margin: 0 8px; box-shadow: 0 0 8px #ff0000; animation: pulse 1.5s infinite; }
-        @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.3; } 100% { opacity: 1; } }
-
-        .btn-assistenza-mini { display: inline-flex; align-items: center; background: var(--pure-red); color: white; padding: 4px 10px; border-radius: 2px; font-size: 9px; font-weight: bold; margin-top: 10px; cursor: pointer; text-transform: uppercase; }
-
-        .bio-text { font-size: 14px; line-height: 1.6; color: #ccc; margin: 25px 0; font-style: italic; text-align: justify; }
-        .listino-box { margin-top: 30px; border-top: 1px solid rgba(212, 175, 55, 0.3); padding-top: 20px; text-align: left; }
-        .listino-item { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 13px; }
-
+        .dot-red { height: 8px; width: 8px; background-color: #ff0000; border-radius: 50%; display: inline-block; margin: 0 8px; animation: pulse 1.5s infinite; }
+        
         .side-btn { position: fixed; top: 50%; transform: translateY(-50%); background: rgba(68, 0, 0, 0.7); border: 1px solid var(--gold); color: var(--gold); writing-mode: vertical-rl; padding: 30px 8px; font-size: 10px; z-index: 100; }
         .left-pos { left: 0; border-radius: 0 5px 5px 0; }
         .right-pos { right: 0; border-radius: 5px 0 0 5px; }
@@ -100,12 +88,12 @@
 
     <section class="pt-28 pb-20">
         <div class="flex justify-center mb-8">
-            <input type="text" class="search-input" placeholder="Cerca la tua Angel Girl..." onkeyup="filterGirls(this.value)">
+            <input type="text" class="px-10 py-3 bg-white/5 border border-gold/30 rounded-full text-center outline-none text-white" placeholder="Cerca la tua Angel Girl...">
         </div>
 
         <div class="flex justify-center gap-4 mb-8">
             <button class="px-6 py-2 border border-gold text-[10px] gold-text uppercase font-bold">Info Generali</button>
-            <button class="px-6 py-2 border border-gold text-[10px] gold-text uppercase font-bold">Certificati ?</button>
+            <button class="px-6 py-2 border border-gold text-[10px] gold-text uppercase font-bold">Profili certificati ?</button>
         </div>
 
         <div class="flex items-center justify-center gap-6 mb-10">
@@ -117,7 +105,7 @@
         <div class="main-layout">
             <button class="side-btn left-pos">Pagamenti</button>
             <div id="profile-grid" class="profile-grid"></div>
-            <button class="side-btn right-pos">Regole</button>
+            <button class="side-btn right-pos">diventa una angel girl</button>
         </div>
     </section>
 
@@ -129,83 +117,86 @@
             <p id="modal-nation" class="text-white/50 text-[10px] uppercase tracking-[4px] mb-4"></p>
             
             <div class="safety-notice">
-                <span class="dot-red"></span>
-                Fai sapere alla modella di averla vista su <strong>Angelic Girls</strong>! Solo così potrai essere tutelato nel caso in cui non ti venga offerto il servizio per il quale hai pagato.
+                <span class="dot-red"></span>Fai sapere alla modella di averla vista su <strong>Angelic Girls</strong>! Solo così potrai essere tutelato nel caso in cui non ti venga offerto il servizio per il quale hai pagato.
                 <span class="dot-red"></span>
                 <p class="mt-3 text-gold italic">Si consiglia di verificare la disponibilità della ragazza prima di procedere con il pagamento.</p>
-                <div class="mt-4 pt-3 border-t border-white/10">
-                    <p>Se non ti è stato offerto il servizio, contatta l'assistenza cliccando qui sotto:</p>
-                    <div class="btn-assistenza-mini" onclick="openSupportAlert()">
-                        Assistenza
-                    </div>
-                </div>
+                <div class="btn-assistenza-mini" onclick="openSupportAlert()">Assistenza</div>
             </div>
 
-            <div class="contacts-box">
-                <a id="link-telegram" href="#" target="_blank" class="contact-btn">Contatta su Telegram</a>
-                <a id="link-canale" href="#" target="_blank" class="contact-btn">Canale Telegram</a>
+            <div id="modal-bio" class="text-sm italic text-gray-400 my-6 text-justify"></div>
+
+            <div class="gallery-box">
+                <h3 class="gallery-title">anteprima foto</h3>
+                <div id="photo-gallery" class="scroll-container"></div>
             </div>
 
-            <div class="bio-text">
-                Un'Angel dal fascino magnetico e dall'eleganza senza tempo. Ama la conversazione stimolante e sa essere la compagna perfetta per momenti di assoluto relax.
+            <div class="gallery-box">
+                <h3 class="gallery-title">anteprima video</h3>
+                <div id="video-gallery" class="scroll-container"></div>
             </div>
 
-            <div class="listino-box">
-                <h3 class="gold-text serif text-xl italic mb-4">Listino Servizi</h3>
-                <div class="listino-item"><span>Incontro standard (1h)</span><span class="gold-text">€ 250</span></div>
-                <div class="listino-item"><span>Long Date (2h)</span><span class="gold-text">€ 450</span></div>
+            <div class="contacts-box mt-10">
+                <a id="link-telegram" href="#" class="block w-full py-4 border border-gold text-gold uppercase text-xs font-bold tracking-widest bg-gold/10 hover:bg-gold hover:text-black transition-all">Contatta su Telegram</a>
             </div>
         </div>
     </div>
 
     <script>
-        let currentPage = 1;
         const nomiDatabase = [
-            {n: "Martina", p: "Italiana"}, {n: "Sofia", p: "Russa"}, 
-            {n: "Alessia", p: "Brasiliana"}, {n: "Giulia", p: "Spagnola"}, 
-            {n: "Elena", p: "Ucraina"}, {n: "Chiara", p: "Italiana"}
+            {n: "Martina", p: "Italiana", bio: "Fascino magnetico ed eleganza senza tempo. Martina è la compagna ideale per trasformare ogni incontro in un'esperienza di lusso e discrezione.", f: 8, v: 3},
+            {n: "Sofia", p: "Russa", bio: "Bellezza statuaria e portamento regale. Sofia ama la conversazione stimolante e sa come rendere ogni momento unico.", f: 10, v: 5},
+            {n: "Alessia", p: "Brasiliana", bio: "Energia pura e solarità travolgente. Con Alessia il tempo sembra fermarsi, tra sorrisi e assoluto relax.", f: 10, v: 10}
         ];
 
         function toggleMenu(alert) { 
             const menu = document.getElementById('side-menu');
-            const loginBtn = document.getElementById('login-button');
-            const regText = document.getElementById('reg-text');
-
             if(alert) {
-                loginBtn.classList.add('is-alerting');
-                regText.classList.add('is-alerting-text');
+                document.getElementById('login-button').classList.add('is-alerting');
+                document.getElementById('reg-text').classList.add('is-alerting-text');
             } else {
-                loginBtn.classList.remove('is-alerting');
-                regText.classList.remove('is-alerting-text');
+                document.getElementById('login-button').classList.remove('is-alerting');
+                document.getElementById('reg-text').classList.remove('is-alerting-text');
             }
-            menu.classList.toggle('menu-open'); 
+            menu.classList.toggle('menu-open');
         }
 
-        function openSupportAlert() {
-            closeModal();
-            toggleMenu(true);
-        }
+        function openSupportAlert() { closeModal(); toggleMenu(true); }
 
-        function renderPage(page) {
-            document.getElementById('current-page-num').innerText = page;
+        function renderPage() {
             const grid = document.getElementById('profile-grid');
             grid.innerHTML = '';
-            nomiDatabase.forEach((girl, i) => {
-                const imgUrl = `https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=600&sig=${girl.n+i}`;
-                grid.innerHTML += `
-                    <div class="card-container" onclick="openProfile('${girl.n}', '${girl.p}', '${imgUrl}')">
-                        <div class="card-square"><img src="${imgUrl}"></div>
-                        <p class="girl-name">${girl.n}</p>
-                    </div>`;
+            nomiDatabase.forEach((g, i) => {
+                grid.innerHTML += `<div class="card-container" onclick="openProfile(${i})">
+                    <div class="card-square"><img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=400&sig=${i}"></div>
+                    <p class="girl-name">${g.n}</p>
+                </div>`;
             });
         }
 
-        function openProfile(nome, nazione, img) {
-            document.getElementById('modal-name').innerText = nome;
-            document.getElementById('modal-nation').innerText = nazione;
-            document.getElementById('modal-image').src = img;
+        function openProfile(index) {
+            const g = nomiDatabase[index];
+            document.getElementById('modal-name').innerText = g.n;
+            document.getElementById('modal-nation').innerText = g.p;
+            document.getElementById('modal-bio').innerText = g.bio;
+            document.getElementById('modal-image').src = `https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=600&sig=${index}`;
+            
+            const pGal = document.getElementById('photo-gallery');
+            pGal.innerHTML = '';
+            for(let i=0; i < Math.min(g.f, 10); i++) {
+                pGal.innerHTML += `<div class="thumb-item"><img src="https://images.unsplash.com/photo-1524250502761-1ac6f2e30d43?w=200&sig=${index}${i}"></div>`;
+            }
+
+            const vGal = document.getElementById('video-gallery');
+            vGal.innerHTML = '';
+            for(let i=0; i < Math.min(g.v, 10); i++) {
+                vGal.innerHTML += `<div class="thumb-item">
+                    <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=200&sig=v${i}">
+                    <div class="video-icon">▶</div>
+                </div>`;
+            }
+
             document.getElementById('profile-modal').style.display = 'block';
-            document.body.style.overflow = 'hidden'; 
+            document.body.style.overflow = 'hidden';
         }
 
         function closeModal() {
@@ -214,10 +205,11 @@
         }
 
         function changePage(step) {
-            currentPage += step;
-            if (currentPage < 1) currentPage = 1;
-            renderPage(currentPage);
+            // Logica placeholder per paginazione
+            renderPage();
         }
+
+        renderPage();
     </script>
 </body>
 </html>
